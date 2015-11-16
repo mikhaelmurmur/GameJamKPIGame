@@ -5,8 +5,6 @@ using DG.Tweening;
 public class SlowpokeController : MonoBehaviour
 {
 
-
-
     void Start()
     {
         StartCoroutine(Moving());
@@ -30,7 +28,7 @@ public class SlowpokeController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("SlowPOKE POWER!!!");
-        EventManager.instance.CallEvent(GlobalEvents.SubstractScore, new object[] { -10 });
+        EventManager.Instance.CallEvent(GlobalEvents.SubstractScore, new object[] { -10 });
         Destroy(this.gameObject);
     }
 

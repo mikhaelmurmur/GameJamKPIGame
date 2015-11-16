@@ -12,23 +12,8 @@ public enum GlobalEvents
     GameIsOver
 }
 
-public class EventManager : MonoBehaviour
+public class EventManager : Singleton<EventManager>
 {
-
-    private static EventManager s_Instance = null;
-    public static EventManager instance
-    {
-        get
-        {
-            if (s_Instance == null)
-            {
-                GameObject go = new GameObject("EventManager");
-                s_Instance = (EventManager)go.AddComponent(typeof(EventManager));
-            }
-            return s_Instance;
-        }
-    }
-
     public delegate void eventHandler(object[] parametrs);
     private Dictionary<GlobalEvents, List<eventHandler>> eventsHandlers = new Dictionary<GlobalEvents, List<eventHandler>>();
 
@@ -42,6 +27,7 @@ public class EventManager : MonoBehaviour
             }
         }
     }
+
 
     public void AddEventHandler(GlobalEvents eventName, eventHandler handler)
     {

@@ -14,16 +14,17 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        EventManager.instance.AddEventHandler(GlobalEvents.AddScore, ChangeScore);
-        EventManager.instance.AddEventHandler(GlobalEvents.SubstractScore, ChangeScore);
+        EventManager.Instance.AddEventHandler(GlobalEvents.AddScore, ChangeScore);
+        EventManager.Instance.AddEventHandler(GlobalEvents.SubstractScore, ChangeScore);
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        if (EventManager.instance != null)
+        Debug.Log("On disable");
+        if (EventManager.Instance)
         {
-            EventManager.instance.RemoveEventHandler(GlobalEvents.AddScore, ChangeScore);
-            EventManager.instance.RemoveEventHandler(GlobalEvents.SubstractScore, ChangeScore);
+            EventManager.Instance.RemoveEventHandler(GlobalEvents.AddScore, ChangeScore);
+            EventManager.Instance.RemoveEventHandler(GlobalEvents.SubstractScore, ChangeScore);
         }
     }
 

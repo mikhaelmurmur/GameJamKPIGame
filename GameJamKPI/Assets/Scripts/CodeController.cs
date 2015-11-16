@@ -7,7 +7,7 @@ public class CodeController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Fell the power of the code!!");
-        EventManager.instance.CallEvent(GlobalEvents.AddScore, new object[] { 30 });
+        EventManager.Instance.CallEvent(GlobalEvents.AddScore, new object[] { 30 });
         Destroy(this.gameObject);
     }
 
