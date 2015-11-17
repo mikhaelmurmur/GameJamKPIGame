@@ -108,6 +108,7 @@
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\UtilFiles\link.xml" />
     <None Include="Assets\Utils\DOTween\DOTween.XML" />
     <None Include="Assets\Utils\DOTween\DOTween43.xml" />
     <None Include="Assets\Utils\DOTween\DOTween46.xml" />
@@ -115,7 +116,6 @@
     <None Include="Assets\Utils\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Utils\DOTween\readme.txt" />
     <None Include="Assets\Utils\ParseFiles\Parse.Unity.xml" />
-    <None Include="Assets\link.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

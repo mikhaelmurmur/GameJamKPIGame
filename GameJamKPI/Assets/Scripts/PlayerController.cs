@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         Vector2 movement = new Vector2(moveHorizontal * speed, rb.velocity.y);
+        rb.AddForce(movement, ForceMode2D.Impulse);
         rb.velocity = movement;
     }
 
