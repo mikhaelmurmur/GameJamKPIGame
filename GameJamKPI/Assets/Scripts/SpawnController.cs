@@ -47,13 +47,7 @@ public class SpawnController : MonoBehaviour
 
     void Spawn()
     {
-        Instantiate(
-            itemsToSpawn[Random.Range(0, itemsToSpawn.Length)],
-            new Vector3(Random.Range(boundary.xMin, boundary.xMax),
-                        globalPlatformsNumber),
-            Quaternion.identity
-            );
-        globalPlatformsNumber++;
+        SpawnPlatform();
         Debug.Log(globalPlatformsNumber);
     }
 
@@ -61,13 +55,53 @@ public class SpawnController : MonoBehaviour
     {
         for (int yPoisition = 0; yPoisition < 100; yPoisition++)
         {
-            Instantiate(
-            itemsToSpawn[Random.Range(0, itemsToSpawn.Length)],
-            new Vector3(Random.Range(boundary.xMin, boundary.xMax),
-                        globalPlatformsNumber),
-            Quaternion.identity
-            );
-            globalPlatformsNumber++;
+            SpawnPlatform();
         }
+    }
+
+    private void SpawnPlatform()
+    {
+        int randomVar = Random.Range(0, 99);
+        if (randomVar < 76)
+        {
+            Instantiate(
+                itemsToSpawn[0],
+                new Vector3(Random.Range(boundary.xMin, boundary.xMax),
+                    globalPlatformsNumber),
+                Quaternion.identity
+                );
+        }
+        else
+        {
+            if (randomVar < 88)
+                Instantiate(
+                    itemsToSpawn[1],
+                    new Vector3(Random.Range(boundary.xMin, boundary.xMax),
+                        globalPlatformsNumber),
+                    Quaternion.identity
+                    );
+            else
+            {
+                if (randomVar < 97)
+                {
+                    Instantiate(
+                        itemsToSpawn[2],
+                        new Vector3(Random.Range(boundary.xMin, boundary.xMax),
+                            globalPlatformsNumber),
+                        Quaternion.identity
+                        );
+                }
+                else
+                {
+                    Instantiate(
+                        itemsToSpawn[3],
+                        new Vector3(Random.Range(boundary.xMin, boundary.xMax),
+                            globalPlatformsNumber),
+                        Quaternion.identity
+                        );
+                }
+            }
+        }
+        globalPlatformsNumber++;
     }
 }
