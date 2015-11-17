@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\BouncingFloor.cs" />
+    <Compile Include="Assets\Scripts\BoundaryController.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CodeController.cs" />
     <Compile Include="Assets\Scripts\DestroyerController.cs" />

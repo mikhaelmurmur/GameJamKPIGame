@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject player;
-    public GameObject winnerMenu;
-    public Text scoreText, nameText, vkIDText;
+    public GameObject winnerMenu, scoreMenu;
+    public Text scoreText;
+    public InputField nameText, vkIDText;
     public CameraFollow cameraMain;
+    public Text TotalPointsText;
     private GameObject spawner;
     private int points;
 
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         int difference = (int)scores[0];
         points += difference;
-        Debug.Log("Points: " + points.ToString());
+        TotalPointsText.text = points.ToString();
     }
 
     void GameIsOver(object[] param)
@@ -53,9 +55,10 @@ public class GameManager : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("VKID"))
         {
-            nameText.text = PlayerPrefs.GetString("VKID");
+            vkIDText.text = PlayerPrefs.GetString("VKID");
         }
         winnerMenu.SetActive(true);
+        scoreMenu.SetActive(false);
     }
 
     void InitialSetUp()
@@ -72,12 +75,19 @@ public class GameManager : MonoBehaviour
             winnerData["Score"] = points;
             winnerData["Name"] = nameText.text;
             winnerData["idVk"] = vkIDText.text;
+            PlayerPrefs.SetString("Name", nameText.text);
+            PlayerPrefs.SetString("VKID", vkIDText.text);
             Task saveTask = winnerData.SaveAsync();
             cameraMain.transform.position = new Vector3(0, 0, -10);
             spawner.SendMessage("Reset");
             winnerMenu.SetActive(false);
+            scoreMenu.SetActive(true);
             points = 0;
             InitialSetUp();
+        }
+        else
+        {
+
         }
     }
 
